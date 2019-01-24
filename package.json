@@ -1,0 +1,24 @@
+{
+  "name": "project_template_generator",
+  "version": "1.0.0",
+  "description": "a npm package to install projects based on scaffolds.",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^6.2.1"
+  },
+  "devDependencies": {},
+  "bin": {
+    "generate": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpdik/project_template_generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpdik/project_template_generator/issues"
+  },
+  "homepage": "https://github.com/jpdik/project_template_generator#readme"
+}
