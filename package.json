@@ -1,14 +1,15 @@
 {
   "name": "project_template_generator",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "a npm package to install projects based on scaffolds.",
-  "main": "index.js",
+  "main": "generate.js",
   "dependencies": {
+    "fs-extra": "^7.0.1",
     "inquirer": "^6.2.1"
   },
   "devDependencies": {},
   "bin": {
-    "generate": "./index.js"
+    "generate": "./generate.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "licenses": [
+    {
+      "type": "ISC",
+      "url": "https://opensource.org/licenses/ISC"
+    }
+  ],
+  "engines": {
+    "node": ">= v8.6.0"
+  },
   "bugs": {
     "url": "https://github.com/jpdik/project_template_generator/issues"
   },
