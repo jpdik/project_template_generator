@@ -1,6 +1,6 @@
 {
   "name": "project_template_generator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a npm package to install projects based on scaffolds.",
   "main": "generate.js",
   "dependencies": {

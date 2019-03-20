@@ -1,4 +1,4 @@
-# Project template generator [![nvm version](https://img.shields.io/badge/version-v1.0.6-blue.svg)](https://www.npmjs.com/package/project_template_generator) ![node](https://img.shields.io/node/v/project_template_generator.svg?color=g)
+# Project template generator [![nvm version](https://img.shields.io/badge/version-v1.0.7-blue.svg)](https://www.npmjs.com/package/project_template_generator) ![node](https://img.shields.io/node/v/project_template_generator.svg?color=g)
 
 Pacote npm para instalar projetos baseados em scaffolds.
 
