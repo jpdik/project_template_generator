@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default props => (
-    <div>
+    <div className="chat_window">
+        {props.children}
     </div>
 )
