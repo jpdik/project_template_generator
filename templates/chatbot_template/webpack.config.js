@@ -1,6 +1,6 @@
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
- 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
     entry: './src/index.jsx',
     output: {
@@ -12,7 +12,7 @@ module.exports = {
         contentBase: './public',
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['*', '.js', '.jsx'],
         alias: {
             modules: __dirname + '/node_modules',
             jquery: 'modules/jquery/dist/jquery.min.js',
@@ -21,27 +21,46 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
-        new ExtractTextPlugin('app.css')
+        new MiniCssExtractPlugin({ filename: 'app.css' })
     ],
     module: {
-        loaders: [{
-            test: /.js[x]?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: ['es2015', 'react'],
-                plugins: ['transform-object-rest-spread']
-            }
-        },  {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-            }, {
-                test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
-                loader: 'file'
+        rules: [
+            {
+                test: /.js[x]?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        query: {
+                            presets: ['env', 'react'],
+                            plugins: ['transform-object-rest-spread']
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: process.env.NODE_ENV === 'development',
+                        },
+                    },
+                    'css-loader'
+                ],
+            },
+            {
+                test: /\.(ttf|eot|svg|gif|jpg|png|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             }
         ]
     }
